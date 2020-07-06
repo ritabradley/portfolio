@@ -19,12 +19,6 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-page-creator`,
-            options: {
-                path: `${__dirname}/src/templates`,
-            },
-        },
-        {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `Rita Bradley | Web Developer`,
