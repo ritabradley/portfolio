@@ -1,7 +1,44 @@
-/* To learn more about how to use Tailwind in your CSS, visit https://tailwindcss.com/ */
-
 @tailwind base;
 
+body {
+    @apply text-lg text-black bg-white font-body;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @apply font-display;
+}
+
 @tailwind components;
+
+/* Buttons */
+
+.btn {
+    @apply px-4 py-2 font-bold rounded;
+}
+
+.btn-primary {
+    @apply text-white bg-red-500;
+}
+.btn-primary:hover {
+    @apply bg-gray-500;
+}
+
+.btn-secondary {
+    @apply text-white bg-gray-700;
+}
+.btn-seconary:hover {
+    @apply bg-gray-900;
+}
+
+/* Dark Mode */
+
+.theme-dark {
+    body {
+        @apply text-white bg-black;
+    }
+}
 
 @tailwind utilities;
