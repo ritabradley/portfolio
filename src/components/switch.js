@@ -14,8 +14,8 @@ const Switch = ({ checked, onChange }) => {
                     checked={checked}
                     onChange={onChange}
                 />
-                <div className="w-10 h-5 bg-gray-400 border border-gray-600 border-opacity-50 rounded-full shadow-inner toggler-line"></div>
-                <div className="absolute inset-y-0 left-0 w-5 h-5 ease-in-out rounded-full shadow-md bg-primary toggler-dot all duration-3"></div>
+                <div className="w-10 h-5 bg-gray-200 border border-gray-200 border-opacity-50 rounded-full shadow-inner toggler-line"></div>
+                <div className="absolute inset-y-0 left-0 w-5 h-5 ease-in-out rounded-full shadow-md bg-main-text toggler-dot all duration-3"></div>
             </div>
         </label>
     )
