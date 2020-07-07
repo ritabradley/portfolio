@@ -1,7 +1,7 @@
 @tailwind base;
 
 body {
-    @apply text-lg text-black bg-white font-body;
+    @apply text-lg font-body;
 }
 
 h1,
@@ -33,12 +33,31 @@ h4 {
     @apply bg-gray-900;
 }
 
-/* Dark Mode */
-
-.theme-dark {
-    body {
-        @apply text-white bg-black;
-    }
+input:checked ~ .toggler-dot {
+    transform: translateX(100%);
+    background-color: var(--accent-main);
+}
+input:checked ~ .toggler-line {
+    background-color: var(--primary);
+}
+.toggler-dot {
+    top: -0.15rem;
+    left: -0.25rem;
 }
 
 @tailwind utilities;
+
+.theme-light {
+    --primary: #fcf7ff;
+    --text-main: #242628;
+    --text-secondary: #494d50;
+    --accent-main: #a93541;
+    --accent-secondary: #e4b363;
+}
+.theme-dark {
+    --primary: #0a100d;
+    --text-main: #fcf7ff;
+    --text-secondary: #f2f2f3;
+    --accent-main: #a93541;
+    --accent-secondary: #e4b363;
+}

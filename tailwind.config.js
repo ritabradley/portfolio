@@ -1,20 +1,29 @@
 module.exports = {
-    purge: ['./src/**/*.js'],
+    purge: { content: ['./src/**/*.js'] },
     target: 'relaxed',
     prefix: '',
     important: false,
     separator: ':',
     theme: {
-        themeVariants: ['dark'],
-        screens: {
-            phone: '320px',
-            tablet: '640px',
-            laptop: '1024px',
-            desktop: '1280px',
-        },
-        fontFamily: {
-            display: ['Quicksand', 'sans-serif'],
-            body: ['Montserrat', 'sans-serif'],
+        extend: {
+            screens: {
+                phone: '320px',
+                tablet: '640px',
+                laptop: '1024px',
+                desktop: '1280px',
+            },
+            fontFamily: {
+                display: ['Quicksand', 'sans-serif'],
+                body: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+                primary: 'var(--primary)',
+                secondary: 'var(--secondary)',
+                'main-text': 'var(--text-main)',
+                'secondary-text': 'var(--text-secondary)',
+                'main-accent': 'var(--accent-main)',
+                'secondary-accent': 'var(--accent-secondary)',
+            },
         },
         colors: {
             transparent: 'transparent',
@@ -116,19 +125,19 @@ module.exports = {
             '8': '8px',
         },
         boxShadow: {
-            xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
-            sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+            xs: '0 0 0 1px rgba(10, 16, 13, 0.05)',
+            sm: '0 1px 2px 0 rgba(10, 16, 13, 0.05)',
             default:
-                '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                '0 1px 3px 0 rgba(10, 16, 13, 0.1), 0 1px 2px 0 rgba(10, 16, 13, 0.06)',
             md:
-                '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                '0 4px 6px -1px rgba(10, 16, 13, 0.1), 0 2px 4px -1px rgba(10, 16, 13, 0.06)',
             lg:
-                '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                '0 10px 15px -3px rgba(10, 16, 13, 0.1), 0 4px 6px -2px rgba(10, 16, 13, 0.05)',
             xl:
-                '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-            '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-            inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-            outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+                '0 20px 25px -5px rgba(10, 16, 13, 0.1), 0 10px 10px -5px rgba(10, 16, 13, 0.04)',
+            '2xl': '0 25px 50px -12px rgba(10, 16, 13, 0.25)',
+            inner: 'inset 0 2px 4px 0 rgba(10, 16, 13, 0.06)',
+            outline: '0 0 0 2px rgba(169, 53, 65, 0.5)',
             none: 'none',
         },
         container: {},
@@ -192,6 +201,7 @@ module.exports = {
         }),
         inset: {
             '0': '0',
+            '2': '2',
             auto: 'auto',
         },
         letterSpacing: {
@@ -636,8 +646,5 @@ module.exports = {
         transitionDelay: ['responsive'],
     },
     extend: {},
-    plugins: [
-        require('@tailwindcss/custom-forms'),
-        require('tailwindcss-multi-theme'),
-    ],
+    plugins: [require('@tailwindcss/custom-forms')],
 }
