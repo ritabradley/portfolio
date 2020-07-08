@@ -34,7 +34,7 @@ const Footer = () => {
                     </Link>
                 </span>
             </p>
-            <nav className="lg:w-1/4 lg:text-right lg:justify-between tablet:text-3xl flex items-center content-center justify-around w-full pt-2 pb-1 text-2xl">
+            <nav className="lg:w-1/4 lg:text-right lg:justify-between flex items-center content-center justify-around w-full pt-2 pb-1 text-2xl">
                 <a
                     href="https://github.com/ritabradley"
                     target="_blank"
