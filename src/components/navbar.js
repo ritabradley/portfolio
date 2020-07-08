@@ -97,18 +97,18 @@ const NavBar = ({ checked, onChange, theme }) => {
                                     >
                                         Projects
                                     </Link>
-                                    <a
-                                        href="/about/"
+                                    <Link
+                                        to="/about/"
                                         className="px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent"
                                     >
-                                        About
-                                    </a>
-                                    <a
-                                        href="/contact/"
+                                        About Me
+                                    </Link>
+                                    <Link
+                                        to="/contact/"
                                         className="px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent"
                                     >
                                         Contact Me
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <Switch checked={checked} onChange={onChange} />
@@ -118,12 +118,12 @@ const NavBar = ({ checked, onChange, theme }) => {
             </div>
             <div className={open ? 'block sm:block' : 'hidden sm:hidden'}>
                 <div className="px-2 pt-2 pb-3">
-                    <a
-                        href="/blog/"
+                    <Link
+                        to="/blog/"
                         className="block px-3 py-2 font-medium transition duration-300 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-700 focus:outline-none focus:text-main-text focus:bg-gray-700"
                     >
                         Blog
-                    </a>
+                    </Link>
                     <Link
                         to="/projects/"
                         className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-700 focus:outline-none focus:text-main-text focus:bg-gray-700"
