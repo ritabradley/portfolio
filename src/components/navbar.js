@@ -120,25 +120,25 @@ const NavBar = ({ checked, onChange, theme }) => {
                 <div className="px-2 pt-2 pb-3">
                     <Link
                         to="/blog/"
-                        className="block px-3 py-2 font-medium transition duration-300 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-700 focus:outline-none focus:text-main-text focus:bg-gray-700"
+                        className="block px-3 py-2 font-medium transition duration-300 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500"
                     >
                         Blog
                     </Link>
                     <Link
                         to="/projects/"
-                        className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-700 focus:outline-none focus:text-main-text focus:bg-gray-700"
+                        className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500"
                     >
                         Projects
                     </Link>
                     <Link
                         to="/about/"
-                        className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-700 focus:outline-none focus:text-main-text focus:bg-gray-700"
+                        className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500"
                     >
                         About Me
                     </Link>
                     <Link
                         to="/contact/"
-                        className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-700 focus:outline-none focus:text-main-text focus:bg-gray-700"
+                        className="block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500"
                     >
                         Contact Me
                     </Link>
