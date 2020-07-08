@@ -2,17 +2,12 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Header from './header'
 import Footer from './footer'
-import Switch from './switch'
 import { ThemeContext } from '../context/themeContext'
 
 const Layout = ({ children }) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const handleThemeToggle = () => {
-        if (theme === 'light') {
-            setTheme('dark')
-        } else {
-            setTheme('light')
-        }
+        theme === 'light' ? setTheme('dark') : setTheme('light')
     }
     return (
         <div
@@ -20,9 +15,8 @@ const Layout = ({ children }) => {
                 theme === 'light' ? 'theme-light' : 'theme-dark'
             } bg-primary text-main-text text-center transition-all duration-300 m-0 px-0 py-5 min-h-screen`}
         >
-            <Header />
-            <Switch
-                id="theme-toggle"
+            <Header
+                theme={theme}
                 checked={theme === 'dark' ? true : false}
                 onChange={handleThemeToggle}
             />

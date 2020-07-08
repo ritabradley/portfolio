@@ -5,12 +5,16 @@ require(`dotenv`).config({
 })
 
 module.exports = {
+    siteMetadata: {
+        title: `Rita Bradley - Web Developer`,
+        author: `Rita Bradley`,
+        description: `You're looking for a top-notch web developer to help build the next big thing. Look no further. Hi! 👋🏽 I'm Rita and I can't wait to help bring your vision to life.`,
+    },
     plugins: [
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-postcss`,
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-sitemap`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -54,31 +58,6 @@ module.exports = {
                 google: {
                     families: ['Quicksand', 'Montserrat'],
                 },
-            },
-        },
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-                // The property ID; the tracking code won't be generated without it
-                trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-                // Defines where to place the tracking script - `true` in the head and `false` in the body
-                head: false,
-                // Setting this parameter is optional
-                anonymize: true,
-                // Setting this parameter is also optional
-                respectDNT: true,
-                // Avoids sending pageview hits from custom paths
-                exclude: ['/preview/**', '/do-not-track/me/too/'],
-                // Delays sending pageview hits on route update (in milliseconds)
-                pageTransitionDelay: 0,
-                // Enables Google Optimize using your container Id
-                optimizeId: process.env.GOOGLE_OPTIMIZE_TRACKING_ID,
-                // Defers execution of google analytics script after page load
-                defer: false,
-                // Any additional optional fields
-                sampleRate: 5,
-                siteSpeedSampleRate: 10,
-                cookieDomain: 'example.com',
             },
         },
     ],
