@@ -5,6 +5,11 @@ require(`dotenv`).config({
 })
 
 module.exports = {
+    siteMetadata: {
+        title: `Rita Bradley - Web Developer`,
+        author: `Rita Bradley`,
+        description: `You're looking for a top-notch web developer to help build the next big thing. Look no further. Hi! 👋🏽 I'm Rita and I can't wait to help bring your vision to life.`,
+    },
     plugins: [
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,

@@ -1,7 +1,7 @@
 {
   "name": "rita-bradley-portfolio",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Personal portfolio web app",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
