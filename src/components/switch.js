@@ -3,14 +3,14 @@ import React from 'react'
 const Switch = ({ checked, onChange }) => {
     return (
         <label
-            className="flex items-center cursor-pointer"
+            className="flex items-center pl-10 cursor-pointer"
             htmlFor="theme-toggler"
         >
             <div className="relative">
                 <input
                     id="theme-toggler"
                     type="checkbox"
-                    class="hidden"
+                    className="hidden"
                     checked={checked}
                     onChange={onChange}
                 />
