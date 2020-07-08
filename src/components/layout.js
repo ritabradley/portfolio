@@ -13,14 +13,14 @@ const Layout = ({ children }) => {
         <div
             className={`${
                 theme === 'light' ? 'theme-light' : 'theme-dark'
-            } bg-primary text-main-text text-center transition-all duration-300 m-0 px-0 py-5 min-h-screen`}
+            } bg-primary text-main-text text-center transition-all duration-300 m-0 px-0 py-5 flex flex-col min-h-screen justify-between`}
         >
             <Header
                 theme={theme}
                 checked={theme === 'dark' ? true : false}
                 onChange={handleThemeToggle}
             />
-            <main>{children}</main>
+            <main className="flex-grow p-8">{children}</main>
             <Footer />
         </div>
     )

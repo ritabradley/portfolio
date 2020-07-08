@@ -1,23 +1,33 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/pro-duotone-svg-icons'
 
 const Switch = ({ checked, onChange }) => {
     return (
-        <label
-            className="flex items-center pl-10 cursor-pointer"
-            htmlFor="theme-toggler"
-        >
-            <div className="relative">
-                <input
-                    id="theme-toggler"
-                    type="checkbox"
-                    className="hidden"
-                    checked={checked}
-                    onChange={onChange}
-                />
-                <div className="w-10 h-5 bg-gray-200 border border-gray-200 border-opacity-50 rounded-full shadow-inner toggler-line"></div>
-                <div className="absolute inset-y-0 left-0 w-5 h-5 ease-in-out rounded-full shadow-md bg-main-text toggler-dot all duration-3"></div>
-            </div>
-        </label>
+        <div className="laptop:pl-10 flex items-center h-auto">
+            <FontAwesomeIcon
+                icon={faSun}
+                size={`lg`}
+                className="text-secondary-accent"
+            />
+            <label
+                className="flex items-center px-1 cursor-pointer"
+                htmlFor="theme-toggler"
+            >
+                <div className="relative">
+                    <input
+                        id="theme-toggler"
+                        type="checkbox"
+                        className="hidden"
+                        checked={checked}
+                        onChange={onChange}
+                    />
+                    <div className="toggler-line w-10 h-5 bg-gray-200 border border-gray-200 border-opacity-50 rounded-full shadow-inner"></div>
+                    <div className="bg-main-text toggler-dot all duration-3 absolute inset-y-0 left-0 w-5 h-5 ease-in-out rounded-full shadow-md"></div>
+                </div>
+            </label>
+            <FontAwesomeIcon icon={faMoon} className="text-secondary-accent" />
+        </div>
     )
 }
 
