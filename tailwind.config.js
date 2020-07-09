@@ -13,8 +13,8 @@ module.exports = {
                 desktop: '1280px',
             },
             fontFamily: {
-                display: ['Quicksand', 'sans-serif'],
-                body: ['Montserrat', 'sans-serif'],
+                display: ['Abril Fatface', 'cursive'],
+                body: ['Raleway', 'sans-serif'],
             },
             colors: {
                 primary: 'var(--primary)',

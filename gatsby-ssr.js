@@ -5,7 +5,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
         <script
             key="fontawesome"
             src="https://kit.fontawesome.com/afd1563109.js"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
         />,
     ])
 }

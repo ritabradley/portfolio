@@ -1,14 +1,7 @@
 @tailwind base;
 
 body {
-    @apply text-lg font-body;
-}
-
-h1,
-h2,
-h3,
-h4 {
-    @apply font-display;
+    @apply font-body text-lg;
 }
 
 @tailwind components;

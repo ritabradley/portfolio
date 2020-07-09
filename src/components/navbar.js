@@ -87,25 +87,25 @@ const NavBar = ({ checked, onChange, theme }) => {
                                 <div>
                                     <Link
                                         to="/blog/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 font-semibold leading-5 transition duration-150 ease-in-out"
                                     >
                                         Blog
                                     </Link>
                                     <Link
                                         to="/projects/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-semibold leading-5 transition duration-150 ease-in-out"
                                     >
                                         Projects
                                     </Link>
                                     <Link
                                         to="/about/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-semibold leading-5 transition duration-150 ease-in-out"
                                     >
                                         About Me
                                     </Link>
                                     <Link
                                         to="/contact/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-semibold leading-5 transition duration-150 ease-in-out"
                                     >
                                         Contact Me
                                     </Link>
@@ -120,25 +120,25 @@ const NavBar = ({ checked, onChange, theme }) => {
                 <div className="px-2 pt-10 pb-3">
                     <Link
                         to="/blog/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 font-medium transition duration-300 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 font-semibold transition duration-300 ease-in-out rounded-md"
                     >
                         Blog
                     </Link>
                     <Link
                         to="/projects/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-semibold text-gray-300 transition duration-150 ease-in-out rounded-md"
                     >
                         Projects
                     </Link>
                     <Link
                         to="/about/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-semibold text-gray-300 transition duration-150 ease-in-out rounded-md"
                     >
                         About Me
                     </Link>
                     <Link
                         to="/contact/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-semibold text-gray-300 transition duration-150 ease-in-out rounded-md"
                     >
                         Contact Me
                     </Link>

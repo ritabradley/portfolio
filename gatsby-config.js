@@ -50,13 +50,18 @@ module.exports = {
                 // Url to query from
                 url:
                     'https://api-us-west-2.graphcms.com/v2/ckc971p6o06ew01za8nzg93ha/master',
+
+                refetchInterval: 180,
             },
         },
         {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
                 google: {
-                    families: ['Quicksand', 'Montserrat'],
+                    families: [
+                        'Abril Fatface',
+                        'Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
+                    ],
                 },
             },
         },
