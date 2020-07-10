@@ -9,7 +9,7 @@ import { Link } from 'gatsby'
 const NavBar = ({ checked, onChange, theme }) => {
     const [open, setOpen] = useState(false)
     return (
-        <nav className="laptop:py-0 py-4 text-base bg-transparent">
+        <nav className="laptop:py-0 py-4 text-base">
             <div className="max-w-7xl tablet:px-6 laptop:px-8 px-2 mx-auto">
                 <div className="relative flex items-center justify-between h-16">
                     <div className="laptop:hidden absolute inset-y-0 left-0 flex items-center">
