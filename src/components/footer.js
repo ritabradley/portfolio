@@ -23,7 +23,7 @@ const Footer = () => {
         `
     )
     return (
-        <footer className="max-w-7xl tablet:px-6 laptop:px-8 laptop:flex-row text-main-text laptop:text-base flex flex-col items-center justify-between p-2 text-sm bg-transparent">
+        <footer className="max-w-7xl tablet:px-6 laptop:px-8 laptop:flex-row text-main-text laptop:text-base bg-primary bottom-0 flex flex-col items-center justify-between p-2 text-sm">
             <p className="divide-secondary-accent laptop:w-3/4 laptop:p-0 lg:text-left w-full py-2 divide-x-2">
                 <span className="px-2">
                     Copyright &copy; 2016 - {new Date().getFullYear()}

@@ -3,7 +3,7 @@ import NavBar from './navbar'
 
 const Header = ({ checked, onChange, theme }) => {
     return (
-        <header>
+        <header className="bg-primary sticky top-0">
             <NavBar theme={theme} checked={checked} onChange={onChange} />
         </header>
     )

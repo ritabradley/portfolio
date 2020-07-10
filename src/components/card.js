@@ -35,7 +35,7 @@ const Card = ({ tags, coverImgUrl, title, excerpt, author, avatar, date }) => {
                         />
                     </Link>
                 </div>
-                <div className="ml-3">
+                <div className="ml-2">
                     <p className="text-main-text mx-1 text-sm leading-5">
                         <a
                             href="https://twitter.com/rita_l_bradley"
