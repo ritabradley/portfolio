@@ -2,14 +2,17 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/pro-duotone-svg-icons'
 
+const style = {
+    '--fa-primary-color': '#A93541',
+    '--fa-secondary-color': '#E4B363',
+    '--fa-primary-opacity': 1,
+    '--fa-secondary-opacity': 1,
+}
+
 const Switch = ({ checked, onChange }) => {
     return (
         <div className="laptop:pl-10 flex items-center h-auto">
-            <FontAwesomeIcon
-                icon={faSun}
-                size={`lg`}
-                className="text-secondary-accent"
-            />
+            <FontAwesomeIcon icon={faSun} size={`lg`} style={style} />
             <label
                 className="flex items-center px-1 cursor-pointer"
                 htmlFor="theme-toggler"
