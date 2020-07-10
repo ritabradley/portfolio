@@ -59,8 +59,8 @@ module.exports = {
             options: {
                 google: {
                     families: [
-                        'Abril Fatface',
-                        'Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
+                        'Montserrat Alternates:wght@700',
+                        'Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
                     ],
                 },
             },
