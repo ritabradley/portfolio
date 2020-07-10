@@ -13,8 +13,8 @@ module.exports = {
                 desktop: '1280px',
             },
             fontFamily: {
-                display: ['Abril Fatface', 'cursive'],
-                body: ['Raleway', 'sans-serif'],
+                display: ['Montserrat Alternates', 'sans-serif'],
+                body: ['Montserrat', 'sans-serif'],
             },
             colors: {
                 primary: 'var(--primary)',
@@ -125,18 +125,18 @@ module.exports = {
             '8': '8px',
         },
         boxShadow: {
-            xs: '0 0 0 1px rgba(10, 16, 13, 0.05)',
-            sm: '0 1px 2px 0 rgba(10, 16, 13, 0.05)',
+            xs: '0 0 0 1px rgba(36, 38, 40, 0.05)',
+            sm: '0 1px 2px 0 rgba(36, 38, 40, 0.05)',
             default:
-                '0 1px 3px 0 rgba(10, 16, 13, 0.1), 0 1px 2px 0 rgba(10, 16, 13, 0.06)',
+                '0 1px 3px 0 rgba(36, 38, 40, 0.1), 0 1px 2px 0 rgba(36, 38, 40, 0.06)',
             md:
-                '0 4px 6px -1px rgba(10, 16, 13, 0.1), 0 2px 4px -1px rgba(10, 16, 13, 0.06)',
+                '0 4px 6px -1px rgba(36, 38, 40, 0.1), 0 2px 4px -1px rgba(36, 38, 40, 0.06)',
             lg:
-                '0 10px 15px -3px rgba(10, 16, 13, 0.1), 0 4px 6px -2px rgba(10, 16, 13, 0.05)',
+                '0 10px 15px -3px rgba(36, 38, 40, 0.1), 0 4px 6px -2px rgba(36, 38, 40, 0.05)',
             xl:
-                '0 20px 25px -5px rgba(10, 16, 13, 0.1), 0 10px 10px -5px rgba(10, 16, 13, 0.04)',
-            '2xl': '0 25px 50px -12px rgba(10, 16, 13, 0.25)',
-            inner: 'inset 0 2px 4px 0 rgba(10, 16, 13, 0.06)',
+                '0 20px 25px -5px rgba(36, 38, 40, 0.1), 0 10px 10px -5px rgba(36, 38, 40, 0.04)',
+            '2xl': '0 25px 50px -12px rgba(36, 38, 40, 0.25)',
+            inner: 'inset 0 2px 4px 0 rgba(36, 38, 40, 0.06)',
             outline: '0 0 0 2px rgba(169, 53, 65, 0.5)',
             none: 'none',
         },
