@@ -38,6 +38,12 @@ input:checked ~ .toggler-line {
     left: -0.25rem;
 }
 
+.post-content {
+}
+
+@screen laptop {
+}
+
 @tailwind utilities;
 
 .theme-light {
@@ -53,4 +59,8 @@ input:checked ~ .toggler-line {
     --text-secondary: #f2f2f3;
     --accent-main: #a93541;
     --accent-secondary: #e4b363;
+}
+
+.overlay {
+    background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
 }

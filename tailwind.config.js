@@ -25,6 +25,18 @@ module.exports = {
                 'secondary-accent': 'var(--accent-secondary)',
             },
         },
+        filter: {
+            // defaults to {}
+            none: 'none',
+            grayscale: 'grayscale(1)',
+            invert: 'invert(1)',
+            sepia: 'sepia(1)',
+        },
+        backdropFilter: {
+            // defaults to {}
+            none: 'none',
+            blur: 'blur(20px)',
+        },
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
@@ -545,6 +557,13 @@ module.exports = {
             '700': '700ms',
             '1000': '1000ms',
         },
+        truncate: {
+            lines: {
+                3: '3',
+                5: '5',
+                8: '8',
+            },
+        },
     },
     variants: {
         accessibility: ['responsive', 'focus'],
@@ -580,6 +599,8 @@ module.exports = {
         float: ['responsive'],
         clear: ['responsive'],
         fontFamily: ['responsive'],
+        filter: ['responsive', 'hover'],
+        backdropFilter: ['responsive', 'hover'],
         fontSize: ['responsive'],
         fontSmoothing: ['responsive'],
         fontStyle: ['responsive'],
@@ -646,5 +667,9 @@ module.exports = {
         transitionDelay: ['responsive'],
     },
     extend: {},
-    plugins: [require('@tailwindcss/custom-forms')],
+    plugins: [
+        require('@tailwindcss/custom-forms'),
+        require('tailwindcss-filters'),
+        require('tailwindcss-truncate-multiline')(['responsive', 'hover']),
+    ],
 }

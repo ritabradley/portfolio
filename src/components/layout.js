@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
                 checked={theme === 'dark' ? true : false}
                 onChange={handleThemeToggle}
             />
-            <main className="flex-grow p-8">{children}</main>
+            <main className="flex-grow p-8 my-10">{children}</main>
             <Footer />
         </div>
     )
