@@ -30,7 +30,7 @@ export default ({ data }) => {
                     />
                     <div class="p-4 absolute bottom-0 left-0 z-20 w-full">
                         {post.tags.map(tag => (
-                            <Tag>{tag}</Tag>
+                            <Tag key={tag}>{tag}</Tag>
                         ))}
                         <h2 class="text-3xl font-semibold text-white leading-tight px-1">
                             {post.title}
