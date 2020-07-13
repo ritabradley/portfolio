@@ -1,6 +1,4 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon } from '@fortawesome/pro-duotone-svg-icons'
 
 const style = {
     '--fa-primary-color': '#A93541',
@@ -12,7 +10,7 @@ const style = {
 const Switch = ({ checked, onChange }) => {
     return (
         <div className="laptop:pl-10 flex items-center h-auto">
-            <FontAwesomeIcon icon={faSun} size={`lg`} style={style} />
+            <span className="fad fa-sun fa-lg" style={style} />
             <label
                 className="flex items-center px-1 cursor-pointer"
                 htmlFor="theme-toggler"
@@ -29,7 +27,7 @@ const Switch = ({ checked, onChange }) => {
                     <div className="bg-main-text toggler-dot all duration-3 absolute inset-y-0 left-0 w-5 h-5 ease-in-out rounded-full shadow-md"></div>
                 </div>
             </label>
-            <FontAwesomeIcon icon={faMoon} className="text-secondary-accent" />
+            <span className="fad fa-moon text-secondary-accent" />
         </div>
     )
 }
