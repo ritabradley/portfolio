@@ -5,7 +5,7 @@ import ghost from '../images/404.svg'
 
 const style = {
     '--fa-primary-color': '#A93541',
-    '--fa-secondary-color': '#0A100D',
+    '--fa-secondary-color': '#E4B363',
     '--fa-primary-opacity': 1,
     '--fa-secondary-opacity': 1,
 }
