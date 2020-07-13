@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHomeHeart } from '@fortawesome/pro-duotone-svg-icons'
 import ghost from '../images/404.svg'
+
+const style = {
+    '--fa-primary-color': '#A93541',
+    '--fa-secondary-color': '#0A100D',
+    '--fa-primary-opacity': 1,
+    '--fa-secondary-opacity': 1,
+}
 
 const PageNotFound = () => {
     return (
@@ -27,11 +32,8 @@ const PageNotFound = () => {
                         className="hover:underline px-4 text-base font-medium text-gray-500"
                         to="/"
                     >
-                        <FontAwesomeIcon
-                            icon={faHomeHeart}
-                            className="text-main-accent"
-                        />{' '}
-                        Go back home
+                        <span className="fad fa-home-heart" style={style} /> Go
+                        back home
                     </Link>
                 </div>
             </section>
