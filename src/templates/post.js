@@ -9,10 +9,9 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export default ({ data }) => {
     const post = data.gcms.posts[0]
-    const { publishedAt, updatedAt } = post
+remove    const { publishedAt } = post
 
     const formattedPublishedAt = moment(publishedAt).format('MMM D, YYYY')
-    const formattedUpdatedAt = moment(updatedAt).format('MMM D, YYYY')
 
     return (
         <Layout>
@@ -49,9 +48,7 @@ export default ({ data }) => {
                                     {' '}
                                     {formattedPublishedAt}{' '}
                                     <span className="font-normal">
-                                        (
-                                        {moment(formattedPublishedAt).fromNow()}
-                                        )
+                                        ({moment(publishedAt).fromNow()})
                                     </span>
                                 </p>
                             </div>
@@ -83,7 +80,6 @@ export const query = graphql`
                 tags
                 title
                 publishedAt
-                updatedAt
                 coverImage {
                     url
                 }
