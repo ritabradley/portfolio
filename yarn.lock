@@ -986,7 +986,7 @@
 
 "@fortawesome/fontawesome-pro@^5.13.1":
   version "5.13.1"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/5.13.1/fontawesome-pro-5.13.1.tgz#75f3be0937656e89ebffa5f68d16fe4647d2f1ad"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-pro/-/5.13.1/fontawesome-pro-5.13.1.tgz#75f3be0937656e89ebffa5f68d16fe4647d2f1ad"
   integrity sha512-8ENkNq6N4FAaCL8zyi2tt2DuWn/TEFJb9mMU0k1IMRsrIh3eYhe8sQ2F1IDSVSUh9xej36MPzTwEQuBNPkQHdQ==
 
 "@fortawesome/fontawesome-svg-core@^1.2.29":
