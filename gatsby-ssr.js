@@ -7,5 +7,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
             src="https://kit.fontawesome.com/afd1563109.js"
             crossOrigin="anonymous"
         />,
+        <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+        />,
     ])
 }

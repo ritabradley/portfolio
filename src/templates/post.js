@@ -4,6 +4,8 @@ import Layout from '../components/layout'
 import Tag from '../components/tag'
 import { graphql } from 'gatsby'
 import moment from 'moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export default ({ data }) => {
     const post = data.gcms.posts[0]
@@ -31,24 +33,39 @@ export default ({ data }) => {
                     <h1 className="laptop:text-3xl p-1 text-2xl font-semibold leading-tight text-white">
                         {post.title}
                     </h1>
-                    <div className="flex mt-3">
-                        <img
-                            src={post.author.picture.url}
-                            alt="author avatar"
-                            className="object-cover w-10 h-10 mr-2 rounded-full"
-                        />
-                        <div className="flex flex-col">
-                            <p className="text-sm font-semibold text-gray-200">
-                                {' '}
-                                {post.author.name}{' '}
-                            </p>
-                            <p className="text-xs font-semibold text-gray-400">
-                                {' '}
-                                {formattedPublishedAt}{' '}
-                                <span className="font-normal">
-                                    ({moment(formattedPublishedAt).fromNow()})
-                                </span>
-                            </p>
+                    <div className="flex justify-between mt-3">
+                        <div className="flex">
+                            <img
+                                src={post.author.picture.url}
+                                alt="author avatar"
+                                className="object-cover w-10 h-10 mr-2 rounded-full"
+                            />
+                            <div className="flex flex-col">
+                                <p className="text-sm font-semibold text-gray-200">
+                                    {' '}
+                                    {post.author.name}{' '}
+                                </p>
+                                <p className="text-xs font-semibold text-gray-400">
+                                    {' '}
+                                    {formattedPublishedAt}{' '}
+                                    <span className="font-normal">
+                                        (
+                                        {moment(formattedPublishedAt).fromNow()}
+                                        )
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a
+                                href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                                className="btn btn-sm btn-primary twitter-share-button"
+                                data-text="Check out this post from @rita_l_bradley"
+                                data-hashtags="blog post"
+                                data-show-count="true"
+                            >
+                                <FontAwesomeIcon icon={faTwitter} /> Tweet
+                            </a>
                         </div>
                     </div>
                 </div>
