@@ -10,7 +10,8 @@ export const onRenderBody = ({ setHeadComponents }) => {
         <script
             async
             src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
+            charSet="utf-8"
         />,
+        <script defer src="./src/js/all.js"></script>,
     ])
 }
