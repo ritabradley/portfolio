@@ -28,7 +28,7 @@ export default ({ data }) => {
                         alt={post.title}
                         class="absolute left-0 top-0 w-full h-full z-0 object-cover"
                     />
-                    <div class="p-4 absolute bottom-0 left-0 z-20">
+                    <div class="p-4 absolute bottom-0 left-0 z-20 w-full">
                         {post.tags.map(tag => (
                             <Tag>{tag}</Tag>
                         ))}
@@ -40,6 +40,7 @@ export default ({ data }) => {
                                 <img
                                     src={post.author.picture.url}
                                     class="h-10 w-10 rounded-full mr-2 object-cover"
+                                    alt="author avatar"
                                 />
                                 <div>
                                     <p class="font-semibold text-gray-200 text-sm">
