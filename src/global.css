@@ -9,14 +9,18 @@ body {
 /* Buttons */
 
 .btn {
-    @apply px-4 py-2 font-bold rounded;
+    @apply px-4 py-2 text-sm font-semibold rounded .tracking-wide;
+}
+
+.btn-sm {
+    @apply px-2 py-1 text-xs;
 }
 
 .btn-primary {
     @apply text-white bg-red-500;
 }
 .btn-primary:hover {
-    @apply bg-gray-500;
+    @apply bg-red-600;
 }
 
 .btn-secondary {
@@ -38,6 +42,29 @@ input:checked ~ .toggler-line {
     left: -0.25rem;
 }
 
+.post-content {
+    h2 {
+        @apply text-main-accent font-display text-4xl font-bold leading-tight;
+    }
+    p {
+        @apply py-4;
+    }
+}
+
+@screen phone {
+}
+
+@screen laptop {
+    .post-content {
+        h2 {
+            @apply text-3xl leading-relaxed;
+        }
+        p {
+            @apply py-2;
+        }
+    }
+}
+
 @tailwind utilities;
 
 .theme-light {
@@ -53,4 +80,8 @@ input:checked ~ .toggler-line {
     --text-secondary: #f2f2f3;
     --accent-main: #a93541;
     --accent-secondary: #e4b363;
+}
+
+.overlay {
+    background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
 }

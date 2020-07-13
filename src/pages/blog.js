@@ -41,6 +41,7 @@ const Blog = ({ data }) => {
                         avatar={post.author.picture.url}
                         author={post.author.name}
                         date={post.date}
+                        slug={post.slug}
                     />
                 ))}
             </div>
@@ -58,6 +59,7 @@ export const query = graphql`
                 title
                 excerpt
                 tags
+                slug
                 date
                 author {
                     name
