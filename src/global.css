@@ -26,7 +26,7 @@ body {
 .btn-secondary {
     @apply text-white bg-gray-700;
 }
-.btn-seconary:hover {
+.btn-secondary:hover {
     @apply bg-gray-900;
 }
 
