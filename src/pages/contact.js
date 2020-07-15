@@ -28,6 +28,7 @@ const Contact = () => {
                             netlify-honeypot="bot-field"
                             data-netlify="true"
                             name="contact"
+                            action="/thanks/"
                         >
                             <input type="hidden" name="bot-field" />
                             <input
@@ -69,7 +70,7 @@ const Contact = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className="btn btn-primary w-full px-8 py-4 leading-none text-white shadow"
+                                    className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
                                 >
                                     <span
                                         className="fad fa-paper-plane"
