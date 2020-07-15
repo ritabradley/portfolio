@@ -6,10 +6,10 @@ import SEO from '../components/seo'
 import contact from '../images/contact.svg'
 
 const style = {
-  '--fa-primary-color' : '#fcf7ff',
-  '--fa-secondary-color' : '#e4b363',
-  '--fa-primary-opacity' : 1,
-  '--fa-secondary-opacity' : 1,
+    '--fa-primary-color': '#fcf7ff',
+    '--fa-secondary-color': '#e4b363',
+    '--fa-primary-opacity': 1,
+    '--fa-secondary-opacity': 1,
 }
 
 const Contact = () => {
