@@ -1,7 +1,8 @@
 import React from 'react'
+
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import PageHeading from '../components/pageHeading'
+import SEO from '../components/seo'
 import contact from '../images/contact.svg'
 
 const style = {
