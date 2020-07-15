@@ -69,6 +69,7 @@ input:checked ~ .toggler-line {
 
 .theme-light {
     --primary: #fcf7ff;
+    --secondary: #fefbfb;
     --text-main: #242628;
     --text-secondary: #494d50;
     --accent-main: #a93541;
@@ -76,6 +77,7 @@ input:checked ~ .toggler-line {
 }
 .theme-dark {
     --primary: #0a100d;
+    --secondary: #242628;
     --text-main: #fcf7ff;
     --text-secondary: #f2f2f3;
     --accent-main: #a93541;
