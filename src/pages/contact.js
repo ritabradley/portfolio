@@ -22,7 +22,7 @@ const Contact = () => {
                     <div className="laptop:w-1/2 laptop:px-24 laptop:mb-0 w-full px-6 mb-8">
                         <img src={contact} alt="forms of communication" />
                     </div>
-                    <div className="laptop:w-1/2 kwes-form w-full px-6">
+                    <div className="laptop:w-1/2 w-full px-6">
                         <form
                             method="post"
                             netlify-honeypot="bot-field"
