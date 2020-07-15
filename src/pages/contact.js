@@ -38,14 +38,15 @@ const Contact = () => {
                             />
                             <div className="mb-4">
                                 <input
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight border border-gray-200 border-opacity-75 rounded appearance-none"
+                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                     type="text"
                                     name="name"
+                                    placeholder="Name"
                                 />
                             </div>
                             <div className="mb-4">
                                 <input
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight border border-gray-200 border-opacity-75 rounded appearance-none"
+                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                     type="email"
                                     name="email"
                                     placeholder="Email"
@@ -53,7 +54,7 @@ const Contact = () => {
                             </div>
                             <div className="mb-4">
                                 <input
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight border border-gray-200 border-opacity-75 rounded appearance-none"
+                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                     type="text"
                                     name="subject"
                                     placeholder="Subject"
@@ -61,7 +62,7 @@ const Contact = () => {
                             </div>
                             <div className="mb-4">
                                 <textarea
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight border border-gray-200 border-opacity-75 rounded appearance-none"
+                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                     placeholder="Tell me something..."
                                     name="message"
                                     rows="5"
