@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 
 // Components
 import Layout from '../components/layout'
@@ -8,7 +10,7 @@ import SEO from '../components/seo'
 
 // Assets
 import contact from '../images/contact.svg'
-import { navigate } from 'gatsby'
+// import { navigate } from 'gatsby'
 
 const style = {
     '--fa-primary-color': '#fcf7ff',
@@ -16,14 +18,34 @@ const style = {
     '--fa-primary-opacity': 1,
     '--fa-secondary-opacity': 1,
 }
-const encode = data => {
-    return Object.keys(data)
-        .map(
-            key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-        )
-        .join('&')
-}
+const formSchema = Yup.object().shape({
+    fullName: Yup.string().required('Full name is required'),
+    email: Yup.string()
+        .email('Invalid email')
+        .required('Please provide your email address'),
+    message: Yup.string().required('Please say something'),
+})
 const Contact = () => {
+    const [serverState, setServerState] = useState()
+    const handleServerResponse = (ok, msg) => {
+        setServerState({ ok, msg })
+    }
+    const handleOnSubmit = (values, actions) => {
+        axios({
+            method: 'POST',
+            url: 'https://formspree.io/xbjzpqle',
+            data: values,
+        })
+            .then(response => {
+                actions.setSubmitting(false)
+                actions.resetForm()
+                handleServerResponse(true, "Thanks! I'll be in touch soon.")
+            })
+            .catch(error => {
+                actions.setSubmitting(false)
+                handleServerResponse(false, error.response.data.error)
+            })
+    }
     return (
         <Layout>
             <SEO title="Contact Me" />
@@ -36,93 +58,50 @@ const Contact = () => {
                     <div className="laptop:w-1/2 w-full px-6">
                         <Formik
                             initialValues={{
-                                name: '',
+                                fullName: '',
                                 email: '',
                                 subject: '',
                                 message: '',
                             }}
-                            onSubmit={(
-                                values,
-                                { resetForm, setSubmitting }
-                            ) => {
-                                fetch('/', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type':
-                                            'application/x-www-form-urlencoded',
-                                    },
-                                    body: encode({
-                                        'form-name': 'contact',
-                                        ...values,
-                                    }),
-                                })
-                                    .then(() => {
-                                        resetForm()
-                                        navigate('/thanks/')
-                                    })
-                                    .catch(error => alert(error))
-                                    .finally(() => setSubmitting(false))
-                            }}
-                            validate={values => {
-                                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-                                const errors = {}
-                                if (!values.name) {
-                                    errors.name = 'Name Required'
-                                }
-                                if (
-                                    !values.email ||
-                                    !emailRegex.test(values.email)
-                                ) {
-                                    errors.email = 'Valid Email Required'
-                                }
-                                if (!values.message) {
-                                    errors.message = 'Message Required'
-                                }
-                                return errors
-                            }}
+                            onSubmit={handleOnSubmit}
+                            validationSchema={formSchema}
                         >
-                            {() => (
-                                <Form
-                                    method="post"
-                                    netlify-honeypot="bot-field"
-                                    data-netlify-recaptcha="true"
-                                    data-netlify="true"
-                                    name="contact"
-                                    action="/thanks"
-                                >
-                                    <Field type="hidden" name="bot-field" />
-                                    <Field
-                                        type="hidden"
-                                        name="form-name"
-                                        value="contact"
-                                    />
+                            {({ isSubmitting }) => (
+                                <Form id="fs-frm" noValidate>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             type="text"
-                                            name="name"
+                                            name="fullName"
+                                            id="fullName"
                                             placeholder="Name"
                                         />
-                                        <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="name" />
-                                        </div>
+                                        <ErrorMessage
+                                            name="fullName"
+                                            className="errorMsg"
+                                            component="p"
+                                        />
                                     </div>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             type="email"
                                             name="email"
+                                            id="email"
                                             placeholder="Email"
                                         />
-                                        <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="email" />
-                                        </div>
+                                        <ErrorMessage
+                                            name="email"
+                                            className="errorMsg"
+                                            component="p"
+                                        />
                                     </div>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             type="text"
                                             name="subject"
+                                            id="subject"
                                             placeholder="Subject"
                                         />
                                     </div>
@@ -132,16 +111,19 @@ const Contact = () => {
                                             placeholder="Tell me something..."
                                             name="message"
                                             rows="5"
+                                            id="message"
                                             component="textarea"
                                         />
-                                        <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="message" />
-                                        </div>
+                                        <ErrorMessage
+                                            name="message"
+                                            className="errorMsg"
+                                            component="p"
+                                        />
                                     </div>
-                                    <div data-netlify-recaptcha="true"></div>
                                     <div>
                                         <button
                                             type="submit"
+                                            disabled={isSubmitting}
                                             className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
                                         >
                                             <span
@@ -151,6 +133,17 @@ const Contact = () => {
                                             Submit
                                         </button>
                                     </div>
+                                    {serverState && (
+                                        <p
+                                            className={
+                                                !serverState.ok
+                                                    ? 'py-1 errorMsg'
+                                                    : 'py-1'
+                                            }
+                                        >
+                                            {serverState.msg}
+                                        </p>
+                                    )}
                                 </Form>
                             )}
                         </Formik>
