@@ -67,7 +67,6 @@ const Contact = () => {
                                 return errors
                             }}
                             onSubmit={(data, { resetForm }) => {
-                                console.log(data)
                                 fetch('/', {
                                     method: 'POST',
                                     headers: {
@@ -75,7 +74,7 @@ const Contact = () => {
                                             'application/x-www-form-urlencoded',
                                     },
                                     body: encode({
-                                        'form-name': 'contact-form',
+                                        'form-name': 'contact',
                                         ...data,
                                     }),
                                 })
