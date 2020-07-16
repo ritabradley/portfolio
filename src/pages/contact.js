@@ -23,6 +23,7 @@ const encode = data => {
         )
         .join('&')
 }
+
 const Contact = () => {
     return (
         <Layout>
@@ -44,24 +45,29 @@ const Contact = () => {
                             validate={values => {
                                 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
                                 const errors = {}
-                                if (!values.fullNameame) {
-                                    errors.fullName = 'Full Name Required'
+                                if (!values.fullName) {
+                                    errors.fullName = 'Required'
+                                } else if (values.fullName.length <= 1) {
+                                    errors.fullName =
+                                        'Must be at least 2 characters long'
                                 }
-                                if (
-                                    !values.email ||
-                                    !emailRegex.test(values.email)
-                                ) {
-                                    errors.email = 'Valid Email Required'
+
+                                if (!values.email) {
+                                    errors.email = 'Required'
+                                } else if (!emailRegex.test(values.email)) {
+                                    errors.email = 'Invalid email address'
                                 }
+
                                 if (!values.message) {
-                                    errors.message = 'Message Required'
+                                    errors.message = 'Required'
+                                } else if (values.message.length <= 179) {
+                                    errors.message =
+                                        'Must be at least 180 characters long'
                                 }
                                 return errors
                             }}
-                            onSubmit={(
-                                values,
-                                { resetForm, setSubmitting }
-                            ) => {
+                            onSubmit={(data, { resetForm }) => {
+                                console.log(data)
                                 fetch('/', {
                                     method: 'POST',
                                     headers: {
@@ -69,8 +75,8 @@ const Contact = () => {
                                             'application/x-www-form-urlencoded',
                                     },
                                     body: encode({
-                                        'form-name': 'contact',
-                                        ...values,
+                                        'form-name': 'contact-form',
+                                        ...data,
                                     }),
                                 })
                                     .then(() => {
@@ -78,35 +84,33 @@ const Contact = () => {
                                         navigate('/thanks/')
                                     })
                                     .catch(error => alert(error))
-                                    .finally(() => setSubmitting(false))
                             }}
                         >
                             {() => (
                                 <Form
-                                    method="post"
-                                    netlify-honeypot="bot-field"
-                                    data-netlify-recaptcha="true"
-                                    data-netlify="true"
                                     name="contact"
+                                    data-netlify="true"
+                                    data-netlify-recaptcha="true"
+                                    netlify-honeypot="bot-field"
                                 >
-                                    <Field type="hidden" name="bot-field" />
                                     <Field type="hidden" name="form-name" />
+                                    <Field type="hidden" name="bot-field" />
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            type="text"
                                             name="fullName"
+                                            type="text"
                                             placeholder="Full Name"
                                         />
                                         <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="name" />
+                                            <ErrorMessage name="fullName" />
                                         </div>
                                     </div>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            type="email"
                                             name="email"
+                                            type="text"
                                             placeholder="Email"
                                         />
                                         <div className="text-main-accent text-xs font-semibold text-left">
@@ -116,36 +120,34 @@ const Contact = () => {
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            type="text"
                                             name="subject"
+                                            type="text"
                                             placeholder="Subject"
                                         />
                                     </div>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            placeholder="Tell me something..."
                                             name="message"
-                                            rows="5"
                                             component="textarea"
+                                            rows="5"
+                                            placeholder="Say something..."
                                         />
                                         <div className="text-main-accent text-xs font-semibold text-left">
                                             <ErrorMessage name="message" />
                                         </div>
                                     </div>
                                     <div data-netlify-recaptcha="true"></div>
-                                    <div>
-                                        <button
-                                            type="submit"
-                                            className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
-                                        >
-                                            <span
-                                                className="fad fa-paper-plane"
-                                                style={style}
-                                            />{' '}
-                                            Submit
-                                        </button>
-                                    </div>
+                                    <button
+                                        className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
+                                        type="submit"
+                                    >
+                                        <span
+                                            className="fad fa-paper-plane"
+                                            style={style}
+                                        />{' '}
+                                        Send it
+                                    </button>
                                 </Form>
                             )}
                         </Formik>
