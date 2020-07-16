@@ -1,9 +1,14 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+
+// Components
+import Layout from '../components/layout'
 import PageHeading from '../components/pageHeading'
 import SEO from '../components/seo'
+
+// Assets
 import contact from '../images/contact.svg'
+import { navigate } from 'gatsby'
 
 const style = {
     '--fa-primary-color': '#fcf7ff',
@@ -11,18 +16,14 @@ const style = {
     '--fa-primary-opacity': 1,
     '--fa-secondary-opacity': 1,
 }
-
+const encode = data => {
+    return Object.keys(data)
+        .map(
+            key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+        )
+        .join('&')
+}
 const Contact = () => {
-    const encode = data => {
-        return Object.keys(data)
-            .map(
-                key =>
-                    encodeURIComponent(key) +
-                    '=' +
-                    encodeURIComponent(data[key])
-            )
-            .join('&')
-    }
     return (
         <Layout>
             <SEO title="Contact Me" />
@@ -40,7 +41,10 @@ const Contact = () => {
                                 subject: '',
                                 message: '',
                             }}
-                            onSubmit={(values, actions) => {
+                            onSubmit={(
+                                values,
+                                { resetForm, setSubmitting }
+                            ) => {
                                 fetch('/', {
                                     method: 'POST',
                                     headers: {
@@ -53,13 +57,11 @@ const Contact = () => {
                                     }),
                                 })
                                     .then(() => {
-                                        fetch('/thanks')
-                                        actions.resetForm()
+                                        resetForm()
+                                        navigate('/thanks/')
                                     })
-                                    .catch(() => {
-                                        alert('Error')
-                                    })
-                                    .finally(() => actions.setSubmitting(false))
+                                    .catch(error => alert(error))
+                                    .finally(() => setSubmitting(false))
                             }}
                             validate={values => {
                                 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
@@ -83,9 +85,10 @@ const Contact = () => {
                                 <Form
                                     method="post"
                                     netlify-honeypot="bot-field"
-                                    data-netlify={true}
+                                    data-netlify-recaptcha="true"
+                                    data-netlify="true"
                                     name="contact"
-                                    action="/thanks/"
+                                    action="/thanks"
                                 >
                                     <Field type="hidden" name="bot-field" />
                                     <Field
@@ -135,6 +138,7 @@ const Contact = () => {
                                             <ErrorMessage name="message" />
                                         </div>
                                     </div>
+                                    <div data-netlify-recaptcha="true"></div>
                                     <div>
                                         <button
                                             type="submit"
