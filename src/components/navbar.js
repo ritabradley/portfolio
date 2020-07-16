@@ -87,25 +87,29 @@ const NavBar = ({ checked, onChange, theme }) => {
                                 <div>
                                     <Link
                                         to="/blog/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-2 py-1 font-bold leading-5 transition duration-150 ease-in-out"
+                                        activeClassName="text-main-accent border-main-text border-b-2"
                                     >
                                         Blog
                                     </Link>
-                                    <Link
+                                    {/* <Link
                                         to="/projects/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-2 py-1 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        activeClassName='text-main-accent border-main-text border-b-2'
                                     >
                                         Projects
-                                    </Link>
+                                    </Link> */}
                                     <Link
                                         to="/about/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-2 py-1 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        activeClassName="text-main-accent border-main-text border-b-2"
                                     >
                                         About Me
                                     </Link>
                                     <Link
                                         to="/contact/"
-                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-3 py-2 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        className="text-main-text hover:text-main-accent focus:outline-none focus:text-main-accent px-2 py-1 ml-4 font-bold leading-5 transition duration-150 ease-in-out"
+                                        activeClassName="text-main-accent border-main-text border-b-2"
                                     >
                                         Contact Me
                                     </Link>
@@ -120,25 +124,29 @@ const NavBar = ({ checked, onChange, theme }) => {
                 <div className="px-2 pt-10 pb-3">
                     <Link
                         to="/blog/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 font-medium transition duration-300 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-accent hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 font-medium transition duration-300 ease-in-out rounded-md"
+                        activeClassName="text-main-accent"
                     >
                         Blog
                     </Link>
-                    <Link
+                    {/* <Link
                         to="/projects/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-accent hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        activeClassName='text-main-accent'
                     >
                         Projects
-                    </Link>
+                    </Link> */}
                     <Link
                         to="/about/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-accent hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        activeClassName="text-main-accent"
                     >
                         About Me
                     </Link>
                     <Link
                         to="/contact/"
-                        className="text-main-text hover:text-main-text hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        className="text-main-text hover:text-main-accent hover:bg-gray-500 hover:bg-opacity-25 focus:outline-none focus:text-main-text focus:bg-gray-500 block px-3 py-2 mt-1 font-medium text-gray-300 transition duration-150 ease-in-out rounded-md"
+                        activeClassName="text-main-accent"
                     >
                         Contact Me
                     </Link>

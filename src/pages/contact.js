@@ -36,10 +36,27 @@ const Contact = () => {
                     <div className="laptop:w-1/2 w-full px-6">
                         <Formik
                             initialValues={{
-                                name: '',
+                                fullName: '',
                                 email: '',
                                 subject: '',
                                 message: '',
+                            }}
+                            validate={values => {
+                                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                                const errors = {}
+                                if (!values.fullNameame) {
+                                    errors.fullName = 'Full Name Required'
+                                }
+                                if (
+                                    !values.email ||
+                                    !emailRegex.test(values.email)
+                                ) {
+                                    errors.email = 'Valid Email Required'
+                                }
+                                if (!values.message) {
+                                    errors.message = 'Message Required'
+                                }
+                                return errors
                             }}
                             onSubmit={(
                                 values,
@@ -63,23 +80,6 @@ const Contact = () => {
                                     .catch(error => alert(error))
                                     .finally(() => setSubmitting(false))
                             }}
-                            validate={values => {
-                                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-                                const errors = {}
-                                if (!values.name) {
-                                    errors.name = 'Name Required'
-                                }
-                                if (
-                                    !values.email ||
-                                    !emailRegex.test(values.email)
-                                ) {
-                                    errors.email = 'Valid Email Required'
-                                }
-                                if (!values.message) {
-                                    errors.message = 'Message Required'
-                                }
-                                return errors
-                            }}
                         >
                             {() => (
                                 <Form
@@ -88,20 +88,15 @@ const Contact = () => {
                                     data-netlify-recaptcha="true"
                                     data-netlify="true"
                                     name="contact"
-                                    action="/thanks"
                                 >
                                     <Field type="hidden" name="bot-field" />
-                                    <Field
-                                        type="hidden"
-                                        name="form-name"
-                                        value="contact"
-                                    />
+                                    <Field type="hidden" name="form-name" />
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             type="text"
-                                            name="name"
-                                            placeholder="Name"
+                                            name="fullName"
+                                            placeholder="Full Name"
                                         />
                                         <div className="text-main-accent text-xs font-semibold text-left">
                                             <ErrorMessage name="name" />
