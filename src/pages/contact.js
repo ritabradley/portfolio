@@ -16,15 +16,18 @@ const style = {
     '--fa-primary-opacity': 1,
     '--fa-secondary-opacity': 1,
 }
-const encode = data => {
-    return Object.keys(data)
-        .map(
-            key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-        )
-        .join('&')
-}
 
 const Contact = () => {
+    const encode = data => {
+        return Object.keys(data)
+            .map(
+                key =>
+                    encodeURIComponent(key) +
+                    '=' +
+                    encodeURIComponent(data[key])
+            )
+            .join('&')
+    }
     return (
         <Layout>
             <SEO title="Contact Me" />
