@@ -12,6 +12,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
             src="https://platform.twitter.com/widgets.js"
             charSet="utf-8"
         />,
-        <script defer src="./src/js/all.js"></script>,
+        <script defer src="./src/js/all.js" />,
     ])
 }
