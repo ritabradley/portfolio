@@ -12,14 +12,17 @@ const style = {
     '--fa-secondary-opacity': 1,
 }
 
-const errorStyle = {
-    fontColor: '#A93541',
-    fontWeight: 'semibold',
-    fontSize: '.75rem',
-    textAlign: 'left',
-}
-
 const Contact = () => {
+    const encode = data => {
+        return Object.keys(data)
+            .map(
+                key =>
+                    encodeURIComponent(key) +
+                    '=' +
+                    encodeURIComponent(data[key])
+            )
+            .join('&')
+    }
     return (
         <Layout>
             <SEO title="Contact Me" />
@@ -38,8 +41,25 @@ const Contact = () => {
                                 message: '',
                             }}
                             onSubmit={(values, actions) => {
-                                alert(JSON.stringify(values, null, 2))
-                                actions.setSubmitting(false)
+                                fetch('/thanks', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type':
+                                            'application/x-www-form-urlencoded',
+                                    },
+                                    body: encode({
+                                        'form-name': 'contact',
+                                        ...values,
+                                    }),
+                                })
+                                    .then(() => {
+                                        alert('Success')
+                                        actions.resetForm()
+                                    })
+                                    .catch(() => {
+                                        alert('Error')
+                                    })
+                                    .finally(() => actions.setSubmitting(false))
                             }}
                             validate={values => {
                                 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
@@ -63,7 +83,7 @@ const Contact = () => {
                                 <Form
                                     method="post"
                                     netlify-honeypot="bot-field"
-                                    data-netlify="true"
+                                    data-netlify={true}
                                     name="contact"
                                     action="/thanks/"
                                 >
