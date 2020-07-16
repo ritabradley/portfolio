@@ -1,6 +1,6 @@
 import React from 'react'
-
 import Layout from '../components/layout'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import PageHeading from '../components/pageHeading'
 import SEO from '../components/seo'
 import contact from '../images/contact.svg'
@@ -10,6 +10,13 @@ const style = {
     '--fa-secondary-color': '#e4b363',
     '--fa-primary-opacity': 1,
     '--fa-secondary-opacity': 1,
+}
+
+const errorStyle = {
+    fontColor: '#A93541',
+    fontWeight: 'semibold',
+    fontSize: '.75rem',
+    textAlign: 'left',
 }
 
 const Contact = () => {
@@ -23,64 +30,106 @@ const Contact = () => {
                         <img src={contact} alt="forms of communication" />
                     </div>
                     <div className="laptop:w-1/2 w-full px-6">
-                        <form
-                            method="post"
-                            netlify-honeypot="bot-field"
-                            data-netlify="true"
-                            name="contact"
-                            action="/thanks/"
+                        <Formik
+                            initialValues={{
+                                name: '',
+                                email: '',
+                                subject: '',
+                                message: '',
+                            }}
+                            onSubmit={(values, actions) => {
+                                alert(JSON.stringify(values, null, 2))
+                                actions.setSubmitting(false)
+                            }}
+                            validate={values => {
+                                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                                const errors = {}
+                                if (!values.name) {
+                                    errors.name = 'Name Required'
+                                }
+                                if (
+                                    !values.email ||
+                                    !emailRegex.test(values.email)
+                                ) {
+                                    errors.email = 'Valid Email Required'
+                                }
+                                if (!values.message) {
+                                    errors.message = 'Message Required'
+                                }
+                                return errors
+                            }}
                         >
-                            <input type="hidden" name="bot-field" />
-                            <input
-                                type="hidden"
-                                name="form-name"
-                                value="contact"
-                            />
-                            <div className="mb-4">
-                                <input
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                    type="text"
-                                    name="name"
-                                    placeholder="Name"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <input
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <input
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                    type="text"
-                                    name="subject"
-                                    placeholder="Subject"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <textarea
-                                    className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                    placeholder="Tell me something..."
-                                    name="message"
-                                    rows="5"
-                                />
-                            </div>
-                            <div>
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
+                            {() => (
+                                <Form
+                                    method="post"
+                                    netlify-honeypot="bot-field"
+                                    data-netlify="true"
+                                    name="contact"
+                                    action="/thanks/"
                                 >
-                                    <span
-                                        className="fad fa-paper-plane"
-                                        style={style}
-                                    />{' '}
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
+                                    <Field type="hidden" name="bot-field" />
+                                    <Field
+                                        type="hidden"
+                                        name="form-name"
+                                        value="contact"
+                                    />
+                                    <div className="mb-4">
+                                        <Field
+                                            className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
+                                            type="text"
+                                            name="name"
+                                            placeholder="Name"
+                                        />
+                                        <div className="text-main-accent text-xs font-semibold text-left">
+                                            <ErrorMessage name="name" />
+                                        </div>
+                                    </div>
+                                    <div className="mb-4">
+                                        <Field
+                                            className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
+                                            type="email"
+                                            name="email"
+                                            placeholder="Email"
+                                        />
+                                        <div className="text-main-accent text-xs font-semibold text-left">
+                                            <ErrorMessage name="email" />
+                                        </div>
+                                    </div>
+                                    <div className="mb-4">
+                                        <Field
+                                            className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
+                                            type="text"
+                                            name="subject"
+                                            placeholder="Subject"
+                                        />
+                                    </div>
+                                    <div className="mb-4">
+                                        <Field
+                                            className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
+                                            placeholder="Tell me something..."
+                                            name="message"
+                                            rows="5"
+                                            component="textarea"
+                                        />
+                                        <div className="text-main-accent text-xs font-semibold text-left">
+                                            <ErrorMessage name="message" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
+                                        >
+                                            <span
+                                                className="fad fa-paper-plane"
+                                                style={style}
+                                            />{' '}
+                                            Submit
+                                        </button>
+                                    </div>
+                                </Form>
+                            )}
+                        </Formik>
                     </div>
                 </div>
             </section>
