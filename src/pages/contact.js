@@ -41,7 +41,7 @@ const Contact = () => {
                                 message: '',
                             }}
                             onSubmit={(values, actions) => {
-                                fetch('/thanks', {
+                                fetch('/', {
                                     method: 'POST',
                                     headers: {
                                         'Content-Type':
@@ -53,7 +53,7 @@ const Contact = () => {
                                     }),
                                 })
                                     .then(() => {
-                                        alert('Success')
+                                        fetch('/thanks')
                                         actions.resetForm()
                                     })
                                     .catch(() => {
