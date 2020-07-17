@@ -68,6 +68,12 @@ const Contact = () => {
                         >
                             {({ isSubmitting }) => (
                                 <Form id="fs-frm" noValidate>
+                                    <Field type="hidden" name="_gotcha" />
+                                    <Field
+                                        type="hidden"
+                                        name="_subject"
+                                        value="New submission!"
+                                    />
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
