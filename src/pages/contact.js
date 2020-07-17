@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 
 // Components
 import Layout from '../components/layout'
@@ -8,7 +10,7 @@ import SEO from '../components/seo'
 
 // Assets
 import contact from '../images/contact.svg'
-import { navigate } from 'gatsby'
+// import { navigate } from 'gatsby'
 
 const style = {
     '--fa-primary-color': '#fcf7ff',
@@ -16,17 +18,33 @@ const style = {
     '--fa-primary-opacity': 1,
     '--fa-secondary-opacity': 1,
 }
-
+const formSchema = Yup.object().shape({
+    fullName: Yup.string().required('Full name is required'),
+    email: Yup.string()
+        .email('Invalid email')
+        .required('Please provide your email address'),
+    message: Yup.string().required('Please say something'),
+})
 const Contact = () => {
-    const encode = data => {
-        return Object.keys(data)
-            .map(
-                key =>
-                    encodeURIComponent(key) +
-                    '=' +
-                    encodeURIComponent(data[key])
-            )
-            .join('&')
+    const [serverState, setServerState] = useState()
+    const handleServerResponse = (ok, msg) => {
+        setServerState({ ok, msg })
+    }
+    const handleOnSubmit = (values, actions) => {
+        axios({
+            method: 'POST',
+            url: 'https://formspree.io/xbjzpqle',
+            data: values,
+        })
+            .then(response => {
+                actions.setSubmitting(false)
+                actions.resetForm()
+                handleServerResponse(true, "Thanks! I'll be in touch soon.")
+            })
+            .catch(error => {
+                actions.setSubmitting(false)
+                handleServerResponse(false, error.response.data.error)
+            })
     }
     return (
         <Layout>
@@ -45,85 +63,44 @@ const Contact = () => {
                                 subject: '',
                                 message: '',
                             }}
-                            validate={values => {
-                                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-                                const errors = {}
-                                if (!values.fullName) {
-                                    errors.fullName = 'Required'
-                                } else if (values.fullName.length <= 1) {
-                                    errors.fullName =
-                                        'Must be at least 2 characters long'
-                                }
-
-                                if (!values.email) {
-                                    errors.email = 'Required'
-                                } else if (!emailRegex.test(values.email)) {
-                                    errors.email = 'Invalid email address'
-                                }
-
-                                if (!values.message) {
-                                    errors.message = 'Required'
-                                } else if (values.message.length <= 179) {
-                                    errors.message =
-                                        'Must be at least 180 characters long'
-                                }
-                                return errors
-                            }}
-                            onSubmit={(data, { resetForm }) => {
-                                fetch('/', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type':
-                                            'application/x-www-form-urlencoded',
-                                    },
-                                    body: encode({
-                                        'form-name': 'contact',
-                                        ...data,
-                                    }),
-                                })
-                                    .then(() => {
-                                        resetForm()
-                                        navigate('/thanks/')
-                                    })
-                                    .catch(error => alert(error))
-                            }}
+                            onSubmit={handleOnSubmit}
+                            validationSchema={formSchema}
                         >
-                            {() => (
-                                <Form
-                                    name="contact"
-                                    data-netlify="true"
-                                    data-netlify-recaptcha="true"
-                                    netlify-honeypot="bot-field"
-                                >
-                                    <Field type="hidden" name="form-name" />
-                                    <Field type="hidden" name="bot-field" />
+                            {({ isSubmitting }) => (
+                                <Form id="fs-frm" noValidate>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             name="fullName"
                                             type="text"
-                                            placeholder="Full Name"
+                                            name="fullName"
+                                            id="fullName"
+                                            placeholder="Name"
                                         />
-                                        <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="fullName" />
-                                        </div>
+                                        <ErrorMessage
+                                            name="fullName"
+                                            className="errorMsg"
+                                            component="p"
+                                        />
                                     </div>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             name="email"
-                                            type="text"
+                                            id="email"
                                             placeholder="Email"
                                         />
-                                        <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="email" />
-                                        </div>
+                                        <ErrorMessage
+                                            name="email"
+                                            className="errorMsg"
+                                            component="p"
+                                        />
                                     </div>
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             name="subject"
-                                            type="text"
+                                            id="subject"
                                             placeholder="Subject"
                                         />
                                     </div>
@@ -131,25 +108,42 @@ const Contact = () => {
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
                                             name="message"
+                                            rows="5"
+                                            id="message"
                                             component="textarea"
                                             rows="5"
                                             placeholder="Say something..."
                                         />
-                                        <div className="text-main-accent text-xs font-semibold text-left">
-                                            <ErrorMessage name="message" />
-                                        </div>
+                                        <ErrorMessage
+                                            name="message"
+                                            className="errorMsg"
+                                            component="p"
+                                        />
                                     </div>
-                                    <div data-netlify-recaptcha="true"></div>
-                                    <button
-                                        className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
-                                        type="submit"
-                                    >
-                                        <span
-                                            className="fad fa-paper-plane"
-                                            style={style}
-                                        />{' '}
-                                        Send it
-                                    </button>
+                                    <div>
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
+                                        >
+                                            <span
+                                                className="fad fa-paper-plane"
+                                                style={style}
+                                            />{' '}
+                                            Submit
+                                        </button>
+                                    </div>
+                                    {serverState && (
+                                        <p
+                                            className={
+                                                !serverState.ok
+                                                    ? 'py-1 errorMsg'
+                                                    : 'py-1'
+                                            }
+                                        >
+                                            {serverState.msg}
+                                        </p>
+                                    )}
                                 </Form>
                             )}
                         </Formik>
