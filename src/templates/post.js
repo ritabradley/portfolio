@@ -2,7 +2,7 @@ import React from 'react'
 import Markdown from 'react-markdown'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Tag from '../components/tag'
+// import Tag from '../components/tag'
 import { graphql } from 'gatsby'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,9 +29,9 @@ export default ({ data }) => {
                         class="absolute left-0 top-0 w-full h-full z-0 object-cover"
                     />
                     <div class="p-4 absolute bottom-0 left-0 z-20 w-full">
-                        {post.tags.map(tag => (
+                        {/* {post.tags.map(tag => (
                             <Tag key={tag}>{tag}</Tag>
-                        ))}
+                        ))} */}
                         <h2 class="text-3xl font-semibold text-white leading-tight px-1">
                             {post.title}
                         </h2>
