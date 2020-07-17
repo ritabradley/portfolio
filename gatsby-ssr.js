@@ -13,5 +13,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
             charSet="utf-8"
         />,
         <script defer src="./src/js/all.js" />,
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer />,
     ])
 }

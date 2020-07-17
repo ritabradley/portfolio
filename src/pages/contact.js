@@ -30,7 +30,7 @@ const Contact = () => {
     const handleServerResponse = (ok, msg) => {
         setServerState({ ok, msg })
     }
-    const handleOnSubmit = (values, actions, token) => {
+    const handleOnSubmit = (values, actions) => {
         axios({
             method: 'POST',
             url: 'https://formspree.io/xbjzpqle',
@@ -120,12 +120,16 @@ const Contact = () => {
                                             component="p"
                                         />
                                     </div>
+                                    <div
+                                        class="g-recaptcha"
+                                        data-sitekey="6LeKYLIZAAAAAJuP1mfaZJrJeoI2xODJ8o2vwpFf"
+                                    ></div>
                                     <div>
                                         <button
                                             type="submit"
                                             data-callback="handleOnSubmit"
                                             disabled={isSubmitting}
-                                            className="g-recaptcha btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
+                                            className="btn btn-primary w-full px-8 py-4 leading-none text-white transition-colors duration-300 shadow"
                                         >
                                             <span
                                                 className="fad fa-paper-plane"
