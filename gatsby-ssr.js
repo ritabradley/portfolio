@@ -12,8 +12,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
             src="https://platform.twitter.com/widgets.js"
             charSet="utf-8"
         />,
-        <script defer src="./src/js/all.js" />,
-
-        <script src="https://www.google.com/recaptcha/api.js" async defer />,
+        <script defer src="/src/js/all.js" />,
     ])
 }
