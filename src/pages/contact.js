@@ -71,6 +71,7 @@ const Contact = () => {
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
+                                            name="fullName"
                                             type="text"
                                             name="fullName"
                                             id="fullName"
@@ -85,7 +86,6 @@ const Contact = () => {
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            type="email"
                                             name="email"
                                             id="email"
                                             placeholder="Email"
@@ -99,7 +99,6 @@ const Contact = () => {
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            type="text"
                                             name="subject"
                                             id="subject"
                                             placeholder="Subject"
@@ -108,11 +107,12 @@ const Contact = () => {
                                     <div className="mb-4">
                                         <Field
                                             className="focus:bg-secondary focus:bg-opacity-25 focus:border-gray-300 focus:outline-none text-main-text bg-primary focus:border-opacity-50 block w-full px-4 py-3 leading-tight placeholder-gray-300 border border-gray-200 border-opacity-75 rounded appearance-none"
-                                            placeholder="Tell me something..."
                                             name="message"
                                             rows="5"
                                             id="message"
                                             component="textarea"
+                                            rows="5"
+                                            placeholder="Say something..."
                                         />
                                         <ErrorMessage
                                             name="message"
