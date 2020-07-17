@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
-import Tag from '../components/tag'
+// import Tag from '../components/tag'
 
 const Card = ({
     tags,
@@ -25,9 +25,9 @@ const Card = ({
                 </div>
             </Link>
             <div className="bg-primary flex-col justify-between flex-1 p-6">
-                {tags.map(tag => (
+                {/* {tags.map(tag => (
                     <Tag key={tag}>{tag}</Tag>
-                ))}
+                ))} */}
                 <Link to={`/post/${slug}`}>
                     <h3 className="text-secondary-text mt-2 text-xl font-semibold leading-7">
                         {title}
