@@ -118,10 +118,6 @@ const Contact = () => {
                                             component="p"
                                         />
                                     </div>
-                                    <div
-                                        class="g-recaptcha"
-                                        data-sitekey="6LeKYLIZAAAAAJuP1mfaZJrJeoI2xODJ8o2vwpFf"
-                                    ></div>
                                     <div>
                                         <button
                                             type="submit"
