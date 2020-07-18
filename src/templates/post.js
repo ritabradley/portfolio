@@ -19,35 +19,35 @@ export default ({ data }) => {
             <SEO title={post.title} keywords={post.tags} />
             <article>
                 <div
-                    class="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative text-left"
+                    className="md:mb-0 relative w-full max-w-screen-md mx-auto mb-4 text-left"
                     style={{ height: `24em` }}
                 >
-                    <div class="absolute left-0 bottom-0 w-full h-full z-10 overlay"></div>
+                    <div className="overlay absolute bottom-0 left-0 z-10 w-full h-full"></div>
                     <img
                         src={post.coverImage.url}
                         alt={post.title}
-                        class="absolute left-0 top-0 w-full h-full z-0 object-cover"
+                        className="absolute top-0 left-0 z-0 object-cover w-full h-full"
                     />
-                    <div class="p-4 absolute bottom-0 left-0 z-20 w-full">
+                    <div className="absolute bottom-0 left-0 z-20 w-full p-4">
                         {/* {post.tags.map(tag => (
                             <Tag key={tag}>{tag}</Tag>
                         ))} */}
-                        <h2 class="text-3xl font-semibold text-white leading-tight px-1">
+                        <h2 className="px-1 text-3xl font-semibold leading-tight text-white">
                             {post.title}
                         </h2>
-                        <div class="flex justify-between mt-3">
+                        <div className="flex justify-between mt-3">
                             <div className="flex">
                                 <img
                                     src={post.author.picture.url}
-                                    class="h-10 w-10 rounded-full mr-2 object-cover"
+                                    className="object-cover w-10 h-10 mr-2 rounded-full"
                                     alt="author avatar"
                                 />
                                 <div>
-                                    <p class="font-semibold text-gray-200 text-sm">
+                                    <p className="text-sm font-semibold text-gray-200">
                                         {' '}
                                         {post.author.name}{' '}
                                     </p>
-                                    <p class="font-semibold text-gray-400 text-xs">
+                                    <p className="text-xs font-semibold text-gray-400">
                                         {' '}
                                         {formattedPublishedAt} (
                                         {moment(publishedAt).fromNow()})
@@ -71,11 +71,10 @@ export default ({ data }) => {
             </article>
 
             <Markdown
-                className="post-content lg:px-0 max-w-screen-md px-4 mx-auto mt-12 text-lg leading-relaxed text-left"
+                className="post-content lg:px-0 max-w-screen-md px-4 mx-auto mt-12 leading-relaxed text-left"
                 source={post.content.markdown}
                 escapeHtml={false}
             />
-            <hr />
         </Layout>
     )
 }
