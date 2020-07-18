@@ -15,6 +15,7 @@ module.exports = {
             fontFamily: {
                 display: ['Montserrat Alternates', 'sans-serif'],
                 body: ['Montserrat', 'sans-serif'],
+                code: ['Space Mono', 'monospace'],
             },
             colors: {
                 primary: 'var(--primary)',

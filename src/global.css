@@ -37,10 +37,6 @@ body {
     @apply bg-gray-900;
 }
 
-#text {
-    @apply text-main-accent text-xs font-semibold;
-}
-
 input:checked ~ .toggler-dot {
     transform: translateX(100%);
     background-color: var(--accent-main);
@@ -53,22 +49,87 @@ input:checked ~ .toggler-line {
     left: -0.25rem;
 }
 
-.post-content {
-    h2 {
-        @apply text-main-accent font-display text-4xl font-bold leading-tight;
-    }
-    p {
-        @apply py-4;
-    }
-}
-
 @screen phone {
+    .post-content {
+        @apply text-base;
+        h1,
+        h2 {
+            @apply text-main-accent font-display text-2xl font-bold;
+        }
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply font-display text-main-accent text-xl font-bold;
+        }
+        p {
+            @apply mb-4;
+        }
+        blockquote {
+            @apply p-2 mx-6 mb-4 text-base italic bg-transparent border-l-4 border-gray-400;
+        }
+        blockquote > p {
+            @apply mb-0;
+        }
+        a {
+            @apply text-secondary-accent;
+        }
+        a:hover {
+            @apply underline;
+        }
+        ul,
+        ol {
+            @apply mb-4 ml-8;
+        }
+        li > p,
+        li > ul,
+        li > ol {
+            @apply mb-0;
+        }
+        ol {
+            @apply list-decimal;
+        }
+        ul {
+            @apply list-disc;
+        }
+        /* Tables */
+        td,
+        th {
+            @apply px-2 py-1 border border-gray-400;
+        }
+        tr:nth-child(odd) {
+            @apply bg-gray-100;
+        }
+        table {
+            @apply mb-6;
+        }
+
+        /* Wrap any inline highlights `that are really long`, but don't modify
+   the setting for codeblocks (inside ```), which are rendered in as:
+   <pre><code>...
+*/
+        code {
+            @apply font-code text-red-400;
+        }
+        &:not(pre) > code.language-text {
+            white-space: pre-line;
+        }
+    }
 }
 
 @screen laptop {
     .post-content {
+        @apply text-lg;
+
+        h1,
         h2 {
-            @apply text-3xl leading-relaxed;
+            @apply my-6 text-4xl font-bold;
+        }
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply my-3 text-2xl font-bold;
         }
         p {
             @apply py-2;

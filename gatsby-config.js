@@ -61,6 +61,7 @@ module.exports = {
                     families: [
                         'Montserrat Alternates:wght@600;700',
                         'Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
+                        'Space Mono:ital,wght@0,400;1',
                     ],
                 },
             },
