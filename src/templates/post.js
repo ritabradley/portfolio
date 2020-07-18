@@ -16,7 +16,11 @@ export default ({ data }) => {
 
     return (
         <Layout>
-            <SEO title={post.title} keywords={post.tags} />
+            <SEO
+                title={post.title}
+                description={post.excerpt}
+                keywords={post.tags}
+            />
             <article>
                 <div
                     className="md:mb-0 relative w-full max-w-screen-md mx-auto mb-4 text-left"
@@ -87,6 +91,7 @@ export const query = graphql`
                 slug
                 tags
                 title
+                excerpt
                 publishedAt
                 coverImage {
                     url
