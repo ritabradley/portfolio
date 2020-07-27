@@ -6,6 +6,7 @@ import {
     faLinkedinIn,
     faDev,
     faInstagram,
+    faMastodon,
 } from '@fortawesome/free-brands-svg-icons'
 
 import { useStaticQuery, graphql, Link } from 'gatsby'
@@ -82,6 +83,16 @@ const Footer = () => {
                 >
                     <FontAwesomeIcon
                         icon={faInstagram}
+                        className="hover:text-main-accent focus:text-main-accent transition-color duration-300 ease-in-out"
+                    />
+                </a>
+                <a
+                    href="https://toot.cafe/@ritabradley"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FontAwesomeIcon
+                        icon={faMastodon}
                         className="hover:text-main-accent focus:text-main-accent transition-color duration-300 ease-in-out"
                     />
                 </a>
