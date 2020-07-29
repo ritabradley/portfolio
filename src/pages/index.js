@@ -52,7 +52,6 @@ export default () => (
                     </div>
                 </div>
             </div>
-            <button onClick={methodDoesNotExist}>Break the world</button>;
         </section>
     </Layout>
 )
