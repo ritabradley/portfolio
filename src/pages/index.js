@@ -3,9 +3,14 @@ import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import home from '../images/home.svg'
 import SEO from '../components/seo'
-import LogRocket from 'logrocket';
+import LogRocket from 'logrocket'
+import * as Sentry from '@sentry/react'
 
-LogRocket.init('tekhut/my-portfolio');
+LogRocket.init('tekhut/my-portfolio')
+Sentry.init({
+    dsn:
+        'https://29b8d036d187468d90cf0b21d8feba0b@o427452.ingest.sentry.io/5371513',
+})
 
 export default () => (
     <Layout>
