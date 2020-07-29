@@ -3,6 +3,9 @@ import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import home from '../images/home.svg'
 import SEO from '../components/seo'
+import LogRocket from 'logrocket';
+
+LogRocket.init('tekhut/my-portfolio');
 
 export default () => (
     <Layout>
